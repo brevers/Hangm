@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Hangman {
-
+    //modifiable words array
     public static String[] words = {"ant", "baboon", "badger", "bat", "bear", "beaver", "camel",
     "cat", "clam", "cobra", "cougar", "coyote", "crow", "deer",
     "dog", "donkey", "duck", "eagle", "ferret", "fox", "frog", "goat",
@@ -48,7 +48,7 @@ public class Hangman {
     " +---+\n" +
     " |   |\n" +
     " O   |\n" +
-    "/|\\  |\n" + //if you were wondering, the only way to print '\' is with a trailing escape character, which also happens to be '\'
+    "/|\\  |\n" + 
     "     |\n" +
     "     |\n" +
     " =========\n",
@@ -70,20 +70,22 @@ public class Hangman {
     " =========\n"};
 
     public static void main(String[] args) {
-
+        //create scanner
         Scanner scan = new Scanner(System.in);
-
+        //call random function
         String word = randomWord();
-        
+
+        //draw one placeholder per letter
         char[] placeholders = new char[word.length()];
         for (int i = 0; i < placeholders.length; i++) {
             placeholders[i] = '_';
         }
-
+        //simply start variables
         int misses = 0;    
 
-        char[] missedGuesses =  new char[6];  
-
+        char[] missedGuesses =  new char[6]; 
+ 
+        //print each time player guess a letter
         while (misses < 6) {
             System.out.print(gallows[misses]);
             
@@ -114,7 +116,7 @@ public class Hangman {
                 break;
             }
         }
-
+        //playes has only 6 chances if bigger then played lose
         if (misses == 6) {
             System.out.print(gallows[6]);
             System.out.println("\nRIP!");
