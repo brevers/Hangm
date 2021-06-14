@@ -107,7 +107,7 @@ public class Hangman {
                 missedGuesses[misses] = guess;
                 misses++;
             }
-            
+            //if they are same, player guessed the word. 
             if (Arrays.equals(placeholders, word.toCharArray())) {
                 System.out.print(gallows[misses]);
                 System.out.print("\nWord:   ");
